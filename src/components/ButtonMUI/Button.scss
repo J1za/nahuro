@@ -1,0 +1,40 @@
+@import "../../assets/styles/variables.scss";
+
+.button-mui {
+    // background: #2FA451;
+    background-color: $green;
+    box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px rgba(0, 0, 0, 0.14), 0px 1px 5px rgba(0, 0, 0, 0.12);
+    border-radius: 5px;
+    display: inline-flex;
+    align-items: center;
+    grid-column-gap: 7px;
+    font-size: 14px;
+    padding: 6px 16px;
+    width: 100%;
+    font-family: $main-font, "Arial", sans-serif;
+    font-weight: 500;
+    color: #fff;
+    border: 0;
+    white-space: nowrap;
+    transition: $duration;
+    &:hover {
+        background-color: darken($green, 10%);
+    }
+    &--09 {
+        background-color: $green09;
+    }
+    &--transparent {
+        background-color: transparent;
+        border: 1px solid #ffffff;
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+    }
+    &--outlined {
+        background-color: transparent;
+        border: 1px solid currentColor;
+        color: $green;
+        width: auto;
+        box-shadow: none;
+    }
+}

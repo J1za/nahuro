@@ -1,0 +1,239 @@
+
+@import '../../assets/styles/variables.scss';
+@import '../../assets/styles/mixins.scss';
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 3;
+    pointer-events: none;
+    opacity: 0;
+    transition: $duration;
+    overflow-y: auto;
+    &.active {
+        opacity: 1;
+        pointer-events: auto;
+    }
+    &.active-closed {
+        opacity: 0;
+}
+
+
+    &.modal-auth {
+
+        .modal-body {
+            // margin-top: 100px;
+            // margin-bottom: 100px;
+            margin-top: 32px;
+            margin-bottom: 32px;
+            // @include mobile {
+            //     margin-top: 32px;
+            //     margin-bottom: 32px;
+            // }
+            @include maxw480 {
+                margin-top: 0;
+                margin-bottom: 0;
+                height: 100%;
+            }
+        }
+        .modal-close {
+            color: $black;
+        }
+    }
+
+    &-overlay {
+        background: rgba(#000, .5);
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+    }
+    &-body {
+        z-index: 2;
+        width: 100%;
+        max-width: 570px;
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+    }
+
+    &-close {
+        position: absolute;
+        top: 18px;
+        right: 22px;
+        z-index: 2;
+    }
+    &-content {
+        background-color: #fff;
+        border-radius: 20px;
+        width: 100%;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+        @include maxw480 {
+            border-radius: 0;
+        }
+    }
+
+
+
+
+    .auth {
+        width: 100%;
+        position: relative;
+        padding: 68px 70px 62px;
+        min-height: 420px;
+        overflow: hidden;
+        @include maxw480 {
+            padding: 32px;
+            height: 100%;
+        }
+        &-bg {
+            position: absolute;
+            z-index: 1;
+            pointer-events: none;
+            &--top-left {
+                left: 0;
+                top: 0;
+            }
+            &--bottom-left {
+                left: 0;
+                bottom: 0;
+            }
+            &--center-right {
+                right: 0;
+                top: 266px;
+            }
+        }
+        &-inner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+            height: 100%;
+            // justify-content: space-between;
+        }
+        &-title {
+            margin-top: 78px;
+            font-size: 24px;
+            font-weight: 500;
+            line-height: .83;
+            text-align: center;
+            letter-spacing: 0.25px;
+            @include tablet {
+                margin-top: 64px;
+            }
+            @include mobile {
+                margin-top: 48px;
+            }
+        }
+        &-subtitle {
+            margin-top: 6px;
+            max-width: 280px;
+            text-align: center;
+            font-size: 12px;
+            line-height: 1.67;
+            color: $grey;
+        }
+        &-form {
+            margin-top: 46px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            @include tablet {
+                margin-top: 40px;
+            }
+            @include mobile {
+                margin-top: 32px;
+            }
+        }
+
+    }
+
+    .input-wrapper {
+        width: 100%;
+        position: relative;
+        &:not(:last-of-type) {
+            margin-bottom: 24px;
+            @include maxw480 {
+                margin-bottom: 16px;
+            }
+        }
+        svg {
+            color: rgba(#000, .54);
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 12px;
+        }
+    }
+
+    .input {
+        height: 50px;
+        border: 1px solid rgba(143, 144, 166, 0.23);
+        border-radius: 4px;
+        width: 100%;
+        display: block;
+        padding-left: 12px;
+        padding-right: 36px;
+        color: $grey;
+    }
+
+    .checkbox-wrapper {
+        width: 100%;
+        @include maxw480 {
+            margin-top: 16px;
+        }
+        label {
+            display: flex;
+            align-items: center;
+            padding-left: 9px;
+            input:checked + .box:after {
+                opacity: 1;
+            }
+        }
+        .box {
+            width: 18px;
+            height: 18px;
+            display: block;
+            border-radius: 2px;
+            border: 2px solid rgba(#000, .6);
+            position: relative;
+            margin-right: 12px;
+            &::after {
+                content: '';
+                position: absolute;
+                top: 2px;
+                left: 2px;
+                right: 2px;
+                bottom: 2px;
+                border-radius: 2px;
+                opacity: 0;
+                background-color: $grey;
+                transition: $duration;
+            }
+        }
+        .text {
+            font-size: 12px;
+            line-height: 1.5;
+            letter-spacing: 0.15px;
+            color: $grey;
+        }
+
+
+    }
+
+    .button-mui {
+        margin-top: 55px;
+        @include mobile {
+            margin-top: 40px;
+        }
+    }
+}

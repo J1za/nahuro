@@ -1,0 +1,90 @@
+.tokenPromo {
+    background: linear-gradient(90.04deg, #1994d9 30.63%, #2fa451 67.09%);
+    border-radius: 6px;
+    box-shadow: none;
+    color: #fff;
+    &.Mui-expanded {
+        margin: 0;
+    }
+    .MuiAccordionSummary-root {
+        min-height: auto;
+        padding: 0 10px 0 13px;
+    }
+    .MuiAccordionSummary-content {
+        margin: 0;
+        padding: 0;
+        display: grid;
+        grid-template-columns: 0.35fr 1.7fr 0.5fr;
+        justify-content: space-between;
+        @media (max-width: 1192px) {
+            grid-template-columns: 0.3fr 1.2fr 0.4fr;
+        }
+        @media (max-width: 1092px) {
+            grid-template-columns: 0.5fr 1.6fr;
+        }
+        @media (max-width: 899px) {
+            grid-template-columns: 1fr;
+        }
+    }
+    &_space {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        grid-column-gap: 13px;
+    }
+    &_border {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 7px 0 6px;
+        gap: 10px;
+        position: relative;
+        text-transform: uppercase;
+        border-right: 1px solid rgba(255, 255, 255, 0.7);
+        // &::before {
+        //     position: absolute;
+        //     content: "";
+        //     height: 100%;
+        //     width: 1px;
+        //     background-color:
+        //     right: 0;
+        //     top: 50%;
+        //     transform: translate(0%, -50%);
+        // }
+        span {
+            line-height: 1;
+            font-size: 10px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.76);
+        }
+        strong,
+        p {
+            line-height: 1;
+            font-weight: 500;
+        }
+        @media (max-width: 899px) {
+            padding-right: 10px;
+            margin-right: 10px;
+            justify-content: flex-start;
+        }
+        &:nth-child(2) {
+            padding: 0px 19px;
+            @media (max-width: 1092px) {
+                border-right: none;
+            }
+            @media (max-width: 899px) {
+                border-right: 1px solid rgba(255, 255, 255, 0.7);
+                padding: 7px 10px 6px 0px;
+            }
+        }
+        &:nth-child(3) {
+            padding-left: 21px;
+            padding-right: 5px;
+            border-right: 0;
+            @media (max-width: 1092px) {
+                padding: 7px 0 6px;
+                border-right: 1px solid rgba(255, 255, 255, 0.7);
+            }
+        }
+    }
+}

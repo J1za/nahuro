@@ -1,0 +1,13 @@
+.block-title {
+    font-size: 34px;
+    font-weight: 400;
+    line-height: 39px;
+    letter-spacing: 0.0025em;
+    @include tablet {
+        line-height: 1.2;
+        font-size: 32px;
+    }
+    @include mobile {
+        font-size: 28px;
+    }
+}

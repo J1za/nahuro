@@ -1,0 +1,66 @@
+stages:
+  - build
+  - push
+  - deploy
+
+build:
+  image: node:13.12.0-alpine
+  stage: build
+  only:
+    - master
+    - develop
+  tags:
+    - nahuro-docker-build
+  script:
+    - npm ci
+    - npm install react-scripts@3.4.1 -g --silent
+    - npm run build
+  artifacts:
+    paths:
+      - build/
+
+deploy-dev:
+  stage: deploy
+  when: manual
+  only:
+    - develop
+  tags:
+    - nahuro-shell-build
+  variables:
+    IMAGE_TAG: nahuro-ui:$CI_COMMIT_SHORT_SHA
+  script:
+    - docker build -t $IMAGE_TAG -f Dockerfile.pipeline .
+    - docker stop nahuro-ui || true && docker rm nahuro-ui || true
+    - docker run -d --name nahuro-ui -p 8001:80 --network nahuro-network $IMAGE_TAG
+
+push-image:
+  image: docker:latest
+  stage: push
+  only:
+    - master
+  tags:
+    - nahuro-docker-build
+  services:
+    - docker:dind
+  variables:
+    IMAGE_TAG: registry.gitlab.com/nahuro/ui/nahuro-ui:$CI_COMMIT_SHORT_SHA
+  script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker build -t $IMAGE_TAG -f Dockerfile.pipeline .
+    - docker push $IMAGE_TAG
+
+deploy-prod:
+  stage: deploy
+  when: manual
+  only:
+    - master
+  tags:
+    - nahuro-dev
+  variables:
+    IMAGE_TAG: registry.gitlab.com/nahuro/ui/nahuro-ui:$CI_COMMIT_SHORT_SHA
+  dependencies:
+    - push-image
+  script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker stop nahuro-ui || true && docker rm nahuro-ui || true
+    - docker run -d --name nahuro-ui -p 8001:80 --network nahuro-network $IMAGE_TAG

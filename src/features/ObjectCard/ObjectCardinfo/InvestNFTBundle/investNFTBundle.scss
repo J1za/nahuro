@@ -1,0 +1,113 @@
+.invset-nftbundle {
+    background: linear-gradient(106.82deg, #1994d9 3.1%, #2fa451 96.87%),
+        linear-gradient(106.82deg, #1994d9 3.1%, #2fa451 96.87%);
+    border-radius: 30px 30px 0px 0px;
+    padding: 66px 20px 83px 57px;
+    overflow: hidden;
+    @media (max-width: 1192px) {
+        max-width: 80%;
+        padding: 40px 20px 60px 50px;
+    }
+    @media (max-width: 991px) {
+        max-width: 100%;
+    }
+    @media (max-width: 767px) {
+        padding: 30px 20px 40px 30px;
+    }
+    img {
+        height: 100%;
+        object-fit: cover;
+    }
+    h3 {
+        color: #fff;
+        @media (max-width: 767px) {
+            font-size: 22px;
+            line-height: 1.2;
+        }
+        @media (max-width: 399px) {
+            font-size: 20px;
+        }
+    }
+    &_img {
+        display: flex;
+        justify-content: flex-end;
+        height: 358px;
+        width: 110%;
+        position: relative;
+        right: 60px;
+        img{
+            height: auto;
+            width: auto;
+        }
+        @media (max-width: 1192px) {
+            height: 330px;
+        }
+        @media (max-width: 767px) {
+            right: 0;
+            height: auto;
+        }
+    }
+    &_available {
+        text-align: center;
+        color: #fff;
+        line-height: 1.62;
+        letter-spacing: 0.15px;
+    }
+    &_button {
+        display: flex;
+        justify-content: center;
+        margin-top: 43px;
+        @media (max-width: 1192px) {
+            margin-top: 30px;
+        }
+        @media (max-width: 767px) {
+            margin-top: 20px;
+        }
+    }
+    &_works {
+        margin-top: 43px;
+        @media (max-width: 767px) {
+            margin-top: 35px;
+        }
+    }
+    &_inner {
+        display: grid;
+        grid-column-gap: 30px;
+        grid-template-columns: 1fr 0.8fr 1.2fr;
+        @media (max-width: 767px) {
+            grid-column-gap: 20px;
+            grid-row-gap: 10px;
+            grid-template-columns: repeat(2, 1fr);
+        }
+        @media (max-width: 499px) {
+            grid-row-gap: 5px;
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+    &_box {
+        margin-top: 30px;
+        display: flex;
+        align-items: center;
+        grid-column-gap: 8px;
+        @media (max-width: 767px) {
+            margin-top: 20px;
+        }
+        p {
+            font-size: 12px;
+            line-height: 14px;
+
+            color: #ffffff;
+        }
+        svg {
+            flex-shrink: 0;
+        }
+        &:not(:first-child) {
+            p {
+                max-width: 125px;
+                @media (max-width: 499px) {
+                    max-width: inherit;
+                }
+            }
+        }
+    }
+}

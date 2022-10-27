@@ -1,0 +1,14 @@
+version: "3.7"
+
+services:
+  ui:
+    container_name: nahuro-ui
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "1337:80"
+    networks:
+      - nahuro-network
+networks:
+  nahuro-network:

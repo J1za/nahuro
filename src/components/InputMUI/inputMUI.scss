@@ -1,0 +1,18 @@
+.inputmui {
+    padding: 0;
+    input {
+        height: auto;
+        padding: 4px;
+        font-size: 34px;
+        font-weight: 500;
+        font-size: 34px;
+        line-height: 41px;
+        text-align: right;
+        &:focus::placeholder {
+            opacity: 0;
+        }
+        &::placeholder {
+            color: #110229;
+        }
+    }
+}

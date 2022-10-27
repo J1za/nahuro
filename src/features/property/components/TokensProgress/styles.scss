@@ -1,0 +1,23 @@
+
+.progress {
+    &_inner {
+        margin-top: 5px;
+        display: flex;
+        justify-content: space-between;
+    }
+    &_info {
+        display: flex;
+        align-items: center;
+        grid-column-gap: 3px;
+        span {
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 14px;
+            color: #848aab;
+        }
+        strong {
+            font-weight: 700;
+            line-height: 15px;
+        }
+    }
+}

@@ -1,0 +1,21 @@
+.prop-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    &_box {
+        width: 78px;
+        border: 1px solid #1994d9;
+        border-radius: 6px;
+        padding: 14px 5px 5px 5px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        grid-row-gap: 15px;
+        p {
+            font-weight: 500;
+            font-size: 10px;
+            line-height: 12px;
+            text-align: center;
+        }
+    }
+}

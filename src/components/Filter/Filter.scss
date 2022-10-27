@@ -1,0 +1,165 @@
+@import "../../assets/styles/variables.scss";
+@import "../../assets/styles/mixins.scss";
+.filter {
+    width: 100%;
+    display: flex;
+    background-color: #fff;
+    border-radius: 15px;
+    border: 1px solid $grey-border;
+    padding: 15px 0;
+    &_switch {
+        display: none;
+        @include maxw480 {
+            display: block;
+            margin-top: 44px;
+        }
+    }
+    @include responsive {
+        flex-wrap: wrap;
+    }
+    @include tablet {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        row-gap: 16px;
+    }
+    @include mobile {
+        grid-template-columns: 1fr 1fr;
+    }
+    @include maxw480 {
+        padding: 16px;
+        grid-template-columns: 1fr;
+        row-gap: 0;
+    }
+    &-item {
+        padding: 0 24px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        min-height: 56px;
+        @include responsive {
+            padding: 0 16px;
+        }
+        @include maxw480 {
+            padding: 16px 0;
+        }
+        &:nth-child(4),
+        &:nth-child(3) {
+            width: 165px;
+            @include tablet {
+                width: auto;
+            }
+        }
+        &:not(:first-child) {
+            border-left: 1px solid $grey;
+            @include tablet {
+                border-left: 0;
+            }
+            @include maxw480 {
+                border-top: 1px solid $grey;
+            }
+        }
+        &:nth-child(3n + 2),
+        &:nth-child(3n + 3) {
+            @include tablet-only {
+                border-left: 1px solid $grey;
+            }
+        }
+        &:nth-child(2n + 2) {
+            @include mobile {
+                border-left: 1px solid $grey;
+            }
+            @include maxw480 {
+                border-left: 0;
+            }
+        }
+        &:last-child {
+            @include responsive {
+                margin-top: 24px;
+                width: 100%;
+                border-left: 0;
+                min-height: initial;
+                flex-direction: row;
+                justify-content: flex-end;
+            }
+            @include tablet {
+                margin: 0;
+                flex-direction: column;
+                justify-content: center;
+                border-left: 1px solid $grey;
+            }
+            @include maxw480 {
+                border-left: 0;
+                padding-top: 48px;
+            }
+        }
+
+        &-title {
+            font-size: 12px;
+            line-height: 1.67;
+            color: $grey;
+        }
+        &-content {
+            margin-top: 12px;
+            position: relative;
+            @include responsive {
+                margin-top: 7px;
+            }
+            svg {
+                position: absolute;
+            }
+        }
+        &--search{
+            justify-content: center;
+        }
+    }
+    &-range {
+        .MuiBox-root {
+            width: 100%;
+        }
+    }
+    &-select {
+        position: relative;
+        // .MuiOutlinedInput-root {
+        //     color: $black;
+        //     font-family: $main-font;
+        //     font-weight: 500;
+        //     border: 0;
+        //     padding: 0;
+        //     font-weight: 500;
+        //     font-size: 16px;
+        //     line-height: 19px;
+        //     background-color: transparent;
+        //     appearance: none;
+        //     cursor: pointer;
+        //     width: 100%;
+        // }
+        // .MuiOutlinedInput-notchedOutline {
+        //     border: 0;
+        // }
+        // .MuiSelect-select {
+        //     // padding-top: 0;
+        //     // padding-bottom: 0;
+        //     border: 0;
+        //     color: $black;
+        // }
+        select {
+            border: 0;
+            padding: 0;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 19px;
+            padding-right: 50px;
+            background-color: transparent;
+            appearance: none;
+            cursor: pointer;
+            width: 100%;
+        }
+        svg {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+        }
+    }
+}

@@ -1,0 +1,43 @@
+@import "../../assets/styles/variables.scss";
+@import "../../assets/styles/mixins.scss";
+
+.block-offers {
+    padding-top: $block-padding-y;
+    @include tablet {
+        padding-top: $block-padding-y-tablet;
+    }
+    @include mobile {
+        padding-top: $block-padding-y-mobile;
+    }
+
+    .block-head {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    // .block-title {
+    //     font-size: 34px;
+    //     font-weight: 500;
+    //     line-height: 40px;
+    //     letter-spacing: 0.0025em;
+    // }
+    .all-offers-link {
+        font-size: 14px;
+        line-height: 1.71;
+        display: flex;
+        align-items: center;
+        letter-spacing: 0.004em;
+        text-transform: uppercase;
+        color: $blue;
+    }
+    .offers-list {
+        margin-top: 55px;
+        @include tablet {
+            margin-top: 48px;
+        }
+        @include mobile {
+            margin-top: 32px;
+        }
+    }
+}
